@@ -12,7 +12,7 @@ public class ClientController {
         _dataManager = new DataManager();
     }
     
-    private String ValidateClient(String name, String address, String id){
+    public String ValidateClient(String name, String address, String id){
         if(!name.equals("") && !address.equals("") && !name.equals(" ")){
             for(int i=0;i<name.length();i++){
                 if((!Character.isUpperCase(name.charAt(i))) && (!Character.isLowerCase(name.charAt(i))) && (!Character.isSpaceChar(name.charAt(i)))){
