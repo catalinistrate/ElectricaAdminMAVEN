@@ -16,7 +16,7 @@ public class ClientControllerTest {
     }
 
     @Test
-    public void testValidateClient_whenClientIsEmpty_expectedBadMessage() {
+    public void testValidateClient_whenNameContainsBadChars_expectedBadMessage() {
         ClientController clientController = new ClientController(); // ClientController is tested
 
         String result = clientController.ValidateClient("Cat@lin","","5");
@@ -26,7 +26,7 @@ public class ClientControllerTest {
     }
 
     @Test
-    public void testValidateClient_whenNameContainsBadChars_expectedBadMessage(){
+    public void testValidateClient_whenClientIsEmpty_expectedBadMessage(){
         ClientController clientController = new ClientController(); // ClientController is tested
 
         String result = clientController.ValidateClient("","","5");
