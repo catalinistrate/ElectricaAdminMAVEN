@@ -19,6 +19,16 @@ public class ClientControllerTest {
     public void testValidateClient_whenClientIsEmpty_expectedBadMessage() {
         ClientController clientController = new ClientController(); // ClientController is tested
 
+        String result = clientController.ValidateClient("Cat@lin","","5");
+
+        // assert statements
+        assert(result.equals("Invalid character: @"));
+    }
+
+    @Test
+    public void testValidateClient_whenNameContainsBadChars_expectedBadMessage(){
+        ClientController clientController = new ClientController(); // ClientController is tested
+
         String result = clientController.ValidateClient("","","5");
 
         // assert statements
