@@ -1,8 +1,10 @@
-import controller.ClientController;
+package controller;
+
 import org.junit.Test;
 
-public class ClientControllerTest {
+import static org.junit.Assert.*;
 
+public class ClientControllerTest {
     @Test
     public void ValidateClient_whenClientIsValid_expectedNull() {
         ClientController clientController = new ClientController(); // ClientController is tested
@@ -22,7 +24,5 @@ public class ClientControllerTest {
         // assert statements
         assert(result.equals("Name or address cannot be empty!"));
     }
-
-
 
 }
