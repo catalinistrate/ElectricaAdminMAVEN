@@ -19,7 +19,7 @@ public class ClientControllerTest {
     public void testValidateClient_whenNameContainsBadChars_expectedBadMessage() {
         ClientController clientController = new ClientController(); // ClientController is tested
 
-        String result = clientController.ValidateClient("Cat@lin","","5");
+        String result = clientController.ValidateClient("Cat@lin","qwert","5");
 
         // assert statements
         assert(result.equals("Invalid character: @"));
