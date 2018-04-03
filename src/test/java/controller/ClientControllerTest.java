@@ -1,5 +1,6 @@
 package controller;
 
+import model.Client;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -110,6 +111,25 @@ public class ClientControllerTest {
 
         // assert statements
         assert(result.equals("Client already exists!"));
+    }
+
+
+    //-----------------------------------------------------------------
+    //WBT start here
+    @Test
+    public void testAddClientIndex_whenMonthisNegative_expectedMessage(){
+        ClientController clientController = new ClientController();
+        String result = clientController.AddClientIndex(new Client("asd","asd","asd"),2010,-1,100);
+
+        assert(result.equals("Month can't be 0 or less!"));
+    }
+
+    @Test
+    public void testAddClientIndex_whenYearIs0_expectedMessage(){
+        ClientController clientController = new ClientController();
+        String result = clientController.AddClientIndex(new Client("asd","asd","asd"),0,9,100);
+
+        assert(result.equals("Year can't be 0 or less!"));
     }
 
 
