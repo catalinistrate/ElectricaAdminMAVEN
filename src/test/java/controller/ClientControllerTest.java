@@ -177,4 +177,48 @@ public class ClientControllerTest {
         assert(result.equals("Monthly index already exists!"));
     }
 
+    //BBT for functionality c
+    @Test
+    public void testListInvoices_whenClientHasNoInvoices_expectedMessage(){
+        ClientController clientController = new ClientController();
+        String result = clientController.ListIssue(new Client("catalin","some street some number","13"));
+        assert(result.equals(""));
+    }
+
+    //Integ. tests start here
+
+    @Test
+    public void mainIntegrationTestMethod_CaseOne(){
+        ClientController clientController = new ClientController();
+        String name = "Catalin";
+        String address = "some street some number";
+        String id = "13";
+        String resultA = auxiliaryIntegrationMethodA_CaseOne(clientController,name,address,id);
+        String resultB = auxiliaryIntegrationMethodB_CaseOne(clientController,name,address,id);
+        String resultC = auxiliaryIntegrationMethodC_CaseOne(clientController,name,address,id);
+
+
+        assert(resultA == null);
+        assert(resultB == null);
+        assert(resultC.equals("Year: 2018, Month: 11,ToPay: 100 Paid:  0\n"));
+
+    }
+
+    /*
+        This method adds a valid client and returns the result
+     */
+    private String auxiliaryIntegrationMethodA_CaseOne(ClientController clientController, String name, String address, String id){
+
+        return clientController.AddClient(name, address, id);
+
+    }
+
+    private String auxiliaryIntegrationMethodB_CaseOne(ClientController cc, String name, String address, String id){
+        return cc.AddClientIndex(new Client(name,address,id),2018,11,100);
+    }
+
+    private String auxiliaryIntegrationMethodC_CaseOne(ClientController cc, String name, String address, String id){
+        return cc.ListIssue(new Client(name,address,id));
+    }
+
 }
